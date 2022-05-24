@@ -1,0 +1,44 @@
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="upLoadFormCSS.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="body">
+            <div class="column">
+                <div th:if="${message}">
+                    <h2 th:text="${message}"/>
+                </div>
+                <div>
+                    <form method="POST" enctype="multipart/form-data" action="/">
+                        <table>
+                            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div>
+                    <ul>
+                        <li th:each="file : ${files}">
+                            <a th:href="${file}" th:text="${file}" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div 
+                <div class="container">
+                    <div class="card mt-4 bg-light">
+                        <ul class="list-group">
+                            <li class="list-group-item">First Name: <h2 th:text = ${firstName}/></li>
+                            <li class="list-group-item"><img th:src="@{${PhotoURL}}"></li>
+                            <li class="list-group-item">Last Name: <p th:text = ${lastName}/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
